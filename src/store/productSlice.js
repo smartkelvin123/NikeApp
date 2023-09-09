@@ -1,12 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 import products from "../data/products";
 
-const initailState = {
+const initialState = {
   products: products,
+  selectedProduct: null,
 };
 
-export const productSlice = createSlice({
+export const productsSlice = createSlice({
   name: "products",
-  initialState: initailState,
-  reducers: {},
+  initialState,
+  reducers: {
+    setSelectedProduct: (state, action) => {
+      state.selectedProduct = state.products.find(
+        (p) => p.id === action.payload
+      );
+    },
+  },
 });
