@@ -8,6 +8,10 @@ const ProductsScreen = ({ navigation }) => {
   const products = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
 
+  const addToCart = () => {
+    dispatch(cartSlice.actions.addCartItem({ product }));
+  };
+
   return (
     <View>
       <FlatList
